@@ -13,7 +13,7 @@ module Resque
         when /^deliver_([_a-z]\w*)\!/ then super(method_name, *args)
         when /^deliver_([_a-z]\w*)/ then
           args = args.map do |object|
-            if object.superclass == ActiveRecord::Base
+            if object.is_a?(ActiveRecord::Base)
               { "class_name" => object.class.name, "id" => object.id}
             else
               object
