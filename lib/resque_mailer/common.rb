@@ -14,7 +14,7 @@ module Resque
       end
     end
 
-    self.default_queue_name = "mailer"
+    self.default_queue_name = "emails"
     self.excluded_environments = [:test]
 
     module ClassMethods
